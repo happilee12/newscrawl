@@ -29,7 +29,7 @@ router.get('/', async function(req, res, next) {
     });
 
     const data = ulList.filter(n => n.title);
-    res.render('index', { title: `동호's news feed` , data});
+    res.render('index', { title: `news feed` , data});
 });
 
 module.exports = router;
