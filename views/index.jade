@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  table
+    thead
+      tr
+        th 제목
+        th 출처
+    tbody
+      each article in data
+        tr
+          td #{article.title}
+            a(href=article.url) 링크
+          td #{article.from}
+
