@@ -28,6 +28,17 @@ router.get('/', async function(req, res, next) {
         })
     });
 
+    const cnbcBusiness  = await axios.get("https://www.cnbc.com/business/");
+    $ = cheerio.load(cnbcBusiness.data);
+    $bodyList = $("div.PageBuilder-containerFluidWidths").first().find(".Card-standardBreakerCard")
+    $bodyList.each(function(i, elem) {
+        ulList.push({
+            title: $(this).find('a.Card-title div').text(),
+            url: $(this).find('a.Card-title').attr('href'),
+            from: 'CNBC-Business'
+        })
+    });
+
     const data = ulList.filter(n => n.title);
     res.render('index', { title: `news feed` , data});
 });

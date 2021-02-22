@@ -4,5 +4,11 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=G-WC2GR8X84D')
+    script.
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-WC2GR8X84D');
   body
     block content
